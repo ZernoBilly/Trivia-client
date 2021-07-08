@@ -1,15 +1,18 @@
 import React from "react";
 import { Grid } from "@material-ui/core";
 
+import Timer from "./Timer/Timer";
+import QuestionAndAnswers from "./QuestionAndAnswers/QuestionAndAnswers";
+
 import useStyles from "./styles";
 
 const MainArea = () => {
   const classes = useStyles();
 
   return (
-    <Grid container direction="column">
-      <Grid className={classes.main}>Main</Grid>
-      <Grid className={classes.lower}>Lower</Grid>
+    <Grid container className={classes.mainArea} direction="column">
+      <Timer />
+      <QuestionAndAnswers />
     </Grid>
   );
 };

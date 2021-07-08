@@ -10,12 +10,11 @@ const Home = () => {
   const classes = useStyles();
   return (
     <div>
-      <TopBar />
       <Grid container maxWidth="xl" className={classes.gridContainer}>
-        <Grid item xs={12} sm={9} md={9}>
+        <Grid item xs={12} sm={12} md={12} lg={9}>
           <MainArea />
         </Grid>
-        <Grid item xs={12} sm={3} md={3}>
+        <Grid item xs={12} sm={12} md={12} lg={3}>
           <ProgressBar />
         </Grid>
       </Grid>
