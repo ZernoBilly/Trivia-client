@@ -12,14 +12,25 @@ export default makeStyles((theme) => ({
     justifyContent: "center",
     padding: theme.spacing(2),
   },
-  questionField: {
+  categoryField: {
     backgroundColor: theme.palette.dark.main,
-    padding: theme.spacing(2),
-
+    padding: theme.spacing(1),
     textAlign: "center",
     borderRadius: "1rem",
     border: "0.2rem solid",
     borderColor: theme.palette.optional.dark,
+  },
+  category: {
+    color: theme.palette.optional.main,
+  },
+  questionField: {
+    backgroundColor: theme.palette.dark.main,
+    padding: theme.spacing(2),
+    textAlign: "center",
+    borderRadius: "1rem",
+    border: "0.2rem solid",
+    borderColor: theme.palette.optional.dark,
+    marginTop: "0.8rem",
   },
   question: {
     color: theme.palette.optional.main,
@@ -50,6 +61,11 @@ export default makeStyles((theme) => ({
       backgroundColor: theme.palette.secondary.dark,
       borderColor: theme.palette.dark.main,
     },
+  },
+  scoreField: {
+    textAlign: "center",
+    backgroundColor: theme.palette.primary.light,
+    color: theme.palette.dark.main,
   },
   score: {
     color: theme.palette.primary.main,

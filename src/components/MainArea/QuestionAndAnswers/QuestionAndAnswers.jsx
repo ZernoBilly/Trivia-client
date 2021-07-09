@@ -13,7 +13,14 @@ const QuestionAndAnswers = () => {
       className={classes.questionsAndAnswersContainer}
     >
       <Grid container className={classes.questionContainer}>
-        <Grid item className={classes.question} xs={12}>
+        <Grid item xs={4}>
+          <Paper className={classes.categoryField}>
+            <Typography className={classes.category}>
+              CategoryCategoryCategory
+            </Typography>
+          </Paper>
+        </Grid>
+        <Grid item xs={12}>
           <Paper className={classes.questionField}>
             <Typography className={classes.question}>
               QuestionQuestionQuestionQuestionQuestionQuestionQuestion
@@ -34,10 +41,12 @@ const QuestionAndAnswers = () => {
         <Grid item xs={12} sm={6} className={classes.answer}>
           <Button className={classes.answerButton}>Answer</Button>
         </Grid>
-        <Grid item xs={12}>
-          <Typography variant="h5" className={classes.score}>
-            Score
-          </Typography>
+        <Grid item xs={2}>
+          <Paper className={classes.scoreField}>
+            <Typography variant="h5" className={classes.scoreAmount}>
+              500
+            </Typography>
+          </Paper>
         </Grid>
       </Grid>
     </Grid>

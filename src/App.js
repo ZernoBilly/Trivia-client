@@ -3,7 +3,6 @@ import { ThemeProvider } from "@material-ui/core";
 
 import useStyles from "./styles";
 import theme from "./theme";
-
 import Home from "./components/Home/Home";
 
 const App = () => {

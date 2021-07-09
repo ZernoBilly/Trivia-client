@@ -3,7 +3,7 @@ import { List } from "@material-ui/core";
 
 import Step from "./Step/Step";
 
-import stepPyramid from "./stepPyramid";
+import stepPyramid from "../../Data/stepPyramid";
 
 import useStyles from "./styles";
 

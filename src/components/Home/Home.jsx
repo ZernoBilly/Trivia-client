@@ -2,7 +2,6 @@ import React from "react";
 import useStyles from "./styles";
 import { Grid } from "@material-ui/core";
 
-import TopBar from "../TopBar/TopBar";
 import MainArea from "../MainArea/MainArea";
 import ProgressBar from "../ProgressBar/ProgressBar";
 
