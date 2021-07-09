@@ -2,7 +2,7 @@ import { makeStyles } from "@material-ui/core";
 
 export default makeStyles((theme) => ({
   timerContainer: {
-    height: "50%",
+    height: "45%",
     display: "flex",
     alignItems: "center",
   },

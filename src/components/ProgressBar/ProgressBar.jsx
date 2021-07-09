@@ -3,11 +3,11 @@ import { List } from "@material-ui/core";
 
 import Step from "./Step/Step";
 
-import stepPyramid from "../../Data/stepPyramid";
-
 import useStyles from "./styles";
 
-const MainArea = () => {
+import reversedStepPyramid from "../../Data/reversedStepPyramid";
+
+const MainArea = ({}) => {
   const classes = useStyles();
 
   const [stepNumber, setStepNumber] = useState(1);
@@ -16,11 +16,11 @@ const MainArea = () => {
     <div className={classes.progressBar}>
       <div className={classes.list}>
         <List>
-          {stepPyramid.map((list) => (
+          {reversedStepPyramid.map((list) => (
             <Step
               step={list.step}
               amount={list.amount}
-              stepClassName={stepNumber === list.step ? "activeStep" : "step"}
+              key={list.step.toString()}
             />
           ))}
         </List>

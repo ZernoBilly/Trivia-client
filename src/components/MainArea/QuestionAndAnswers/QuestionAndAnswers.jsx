@@ -1,10 +1,49 @@
-import React from "react";
-import { Grid, Button, Typography, Paper } from "@material-ui/core";
+import React, { useEffect, useState } from "react";
+import { Grid, Button, Typography, Paper, IconButton } from "@material-ui/core";
+import PlayArrowIcon from "@material-ui/icons/PlayArrow";
+import StopIcon from "@material-ui/icons/Stop";
+import SkipNextIcon from "@material-ui/icons/SkipNext";
 
 import useStyles from "./styles";
 
-const QuestionAndAnswers = () => {
+import stepPyramid from "../../../Data/stepPyramid";
+
+const QuestionAndAnswers = ({
+  score,
+  question,
+  setCurrentQuestion,
+  currentQuestion,
+  fetchQuestions,
+}) => {
   const classes = useStyles();
+
+  const [shuffledAnswers, setShuffledAnswers] = useState();
+
+  //Encode missing quetes from fetched data
+  const encodedText = (text) => {
+    let encodedText = text.replace(/&quot;/g, '"').replace(/&#039;/g, "'");
+    return encodedText;
+  };
+  //Get difficulty from stepPyramid
+  const difficulty = stepPyramid[currentQuestion - 1].difficulty;
+
+  useEffect(() => {
+    console.log(question);
+
+    setShuffledAnswers(
+      handleShuffle([
+        question[currentQuestion].correct_answer,
+        ...question[currentQuestion].incorrect_answers,
+      ])
+    );
+  }, [currentQuestion]);
+
+  //Shuffle answers
+  const handleShuffle = (answers) => {
+    return answers.sort(() => Math.random() - 0.5);
+  };
+
+  console.log(shuffledAnswers);
 
   return (
     <Grid
@@ -16,14 +55,14 @@ const QuestionAndAnswers = () => {
         <Grid item xs={4}>
           <Paper className={classes.categoryField}>
             <Typography className={classes.category}>
-              CategoryCategoryCategory
+              {encodedText(question.category)}
             </Typography>
           </Paper>
         </Grid>
         <Grid item xs={12}>
           <Paper className={classes.questionField}>
             <Typography className={classes.question}>
-              QuestionQuestionQuestionQuestionQuestionQuestionQuestion
+              {encodedText(question.question)}
             </Typography>
           </Paper>
         </Grid>
@@ -44,9 +83,38 @@ const QuestionAndAnswers = () => {
         <Grid item xs={2}>
           <Paper className={classes.scoreField}>
             <Typography variant="h5" className={classes.scoreAmount}>
-              500
+              {score}
             </Typography>
           </Paper>
+        </Grid>
+        <Grid item xs={12} className={classes.actionButtonContainer}>
+          <IconButton className={classes.stopButton} size="medium">
+            <StopIcon />
+          </IconButton>
+          <IconButton
+            className={classes.startButton}
+            onClick={() => {
+              fetchQuestions(difficulty);
+              setCurrentQuestion(currentQuestion + 1);
+
+              console.log(currentQuestion);
+              console.log(difficulty);
+            }}
+          >
+            <PlayArrowIcon />
+          </IconButton>
+          <IconButton
+            className={classes.nextButton}
+            onClick={() => {
+              fetchQuestions(difficulty);
+              setCurrentQuestion(currentQuestion + 1);
+
+              console.log(currentQuestion);
+              console.log(difficulty);
+            }}
+          >
+            <SkipNextIcon />
+          </IconButton>
         </Grid>
       </Grid>
     </Grid>
