@@ -45,7 +45,10 @@ const Home = () => {
           />
         </Grid>
         <Grid item xs={12} sm={12} md={12} lg={3}>
-          <ProgressBar stepPyramid={stepPyramid} />
+          <ProgressBar
+            stepPyramid={stepPyramid}
+            currentQuestion={currentQuestion}
+          />
         </Grid>
       </Grid>
     </div>

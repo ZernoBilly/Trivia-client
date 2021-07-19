@@ -1,5 +1,3 @@
-import React from "react";
-
 const stepPyramid = [
   { step: 1, amount: 100, difficulty: "easy" },
   { step: 2, amount: 200, difficulty: "easy" },

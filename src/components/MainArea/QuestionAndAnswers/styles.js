@@ -103,7 +103,7 @@ export default makeStyles((theme) => ({
     margin: "0 2rem",
 
     "&:hover": {
-      backgroundColor: theme.palette.info.dark,
+      backgroundColor: theme.palette.success.dark,
     },
   },
 }));

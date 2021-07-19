@@ -4,7 +4,7 @@ import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
 
 import useStyles from "./styles";
 
-const Step = ({ amount, step }) => {
+const Step = ({ amount, step, currentQuestion }) => {
   const classes = useStyles();
 
   return (

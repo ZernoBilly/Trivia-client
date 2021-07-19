@@ -5,19 +5,24 @@ import Step from "./Step/Step";
 
 import useStyles from "./styles";
 
-import reversedStepPyramid from "../../Data/reversedStepPyramid";
+import stepPyramid from "../../Data/stepPyramid";
 
-const MainArea = ({}) => {
+//Reverse step pyramid
+const reversedStepPyramid = () => {
+  const newStepPyramid = [...stepPyramid];
+  return newStepPyramid.reverse();
+};
+
+const ProgressBar = ({ currentQuestion }) => {
   const classes = useStyles();
-
-  const [stepNumber, setStepNumber] = useState(1);
 
   return (
     <div className={classes.progressBar}>
       <div className={classes.list}>
         <List>
-          {reversedStepPyramid.map((list) => (
+          {reversedStepPyramid().map((list) => (
             <Step
+              currentQuestion={currentQuestion}
               step={list.step}
               amount={list.amount}
               key={list.step.toString()}
@@ -29,4 +34,4 @@ const MainArea = ({}) => {
   );
 };
 
-export default MainArea;
+export default ProgressBar;
