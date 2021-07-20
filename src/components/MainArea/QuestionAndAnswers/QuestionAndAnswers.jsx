@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import axios from "axios";
 import { Grid, Button, Typography, Paper, IconButton } from "@material-ui/core";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
@@ -23,8 +23,8 @@ const QuestionAndAnswers = () => {
   } = useContext(triviaContext);
 
   const handleNextQuestion = () => {
-    const newStep = currentStep;
-    setCurrentStep(stepPyramid[newStep.step + 1]);
+    const newStep = [...stepPyramid];
+    setCurrentStep(newStep[currentStep.step - 1 + 1]);
     getQuestions();
   };
 
@@ -63,13 +63,12 @@ const QuestionAndAnswers = () => {
     fetchHardQuestion(data.results[0]);
   };
 
-  console.log(currentStep.step);
-
   //Encode missing quetes from fetched data
   const encodeText = (text) => {
     let encodedText = text.replace(/&quot;/g, '"').replace(/&#039;/g, "'");
     return encodedText;
   };
+  console.log(state);
 
   return (
     <Grid

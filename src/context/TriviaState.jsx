@@ -39,8 +39,6 @@ const TriviaState = (props) => {
     });
   };
 
-  console.log(currentStep);
-
   return (
     <TriviaContext.Provider
       value={{
