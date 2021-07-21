@@ -25,7 +25,6 @@ const QuestionAndAnswers = () => {
   const handleNextQuestion = () => {
     const newStep = [...stepPyramid];
     setCurrentStep(newStep[currentStep.step - 1 + 1]);
-    getQuestions();
   };
 
   const getQuestions = () => {
@@ -124,7 +123,10 @@ const QuestionAndAnswers = () => {
           </IconButton>
           <IconButton
             className={classes.nextButton}
-            onClick={() => handleNextQuestion()}
+            onClick={() => {
+              handleNextQuestion();
+              getEasyQuestions();
+            }}
           >
             <SkipNextIcon />
           </IconButton>
