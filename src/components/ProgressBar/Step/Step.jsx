@@ -4,11 +4,16 @@ import AttachMoneyIcon from "@material-ui/icons/AttachMoney";
 
 import useStyles from "./styles";
 
-const Step = ({ amount, step, currentQuestion }) => {
+const Step = ({ amount, step, currentStep }) => {
   const classes = useStyles();
 
+  console.log(currentStep.step);
+
   return (
-    <ListItem className={classes.step} key={step}>
+    <ListItem
+      className={currentStep.step === step ? classes.activeStep : classes.step}
+      key={step}
+    >
       <ListItemText primary={step} className={classes.stepNumber} />
       <ListItemIcon>
         <AttachMoneyIcon />

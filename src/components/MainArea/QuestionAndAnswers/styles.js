@@ -43,41 +43,23 @@ export default makeStyles((theme) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    paddingTop: "2rem",
+    paddingTop: "1rem",
   },
-  answer: {
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  answerButton: {
-    width: "25rem",
-    height: "3rem",
-    color: theme.palette.optional.main,
-    backgroundColor: theme.palette.dark.main,
-    borderRadius: "1rem",
-    border: "0.2rem solid",
-    borderColor: theme.palette.optional.dark,
 
-    "&:hover": {
-      backgroundColor: theme.palette.secondary.dark,
-      borderColor: theme.palette.dark.main,
-    },
-  },
   scoreField: {
     textAlign: "center",
     backgroundColor: theme.palette.primary.light,
     color: theme.palette.dark.main,
-    marginTop: "2rem",
+    marginTop: "1rem",
   },
-  score: {
-    color: theme.palette.primary.main,
+  scoreAmount: {
+    color: theme.palette.dark.main,
   },
   actionButtonContainer: {
     display: "flex",
     alignItems: "space-between",
     justifyContent: "center",
-    marginTop: "2rem",
+    marginTop: "1rem",
   },
   stopButton: {
     color: theme.palette.warning.light,

@@ -1,31 +1,33 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { List } from "@material-ui/core";
 
 import Step from "./Step/Step";
 
 import useStyles from "./styles";
 
-import stepPyramid from "../../Data/stepPyramid";
+import TriviaContext from "../../context/triviaContext";
 
-//Reverse step pyramid
-const reversedStepPyramid = () => {
-  const newStepPyramid = [...stepPyramid];
-  return newStepPyramid.reverse();
-};
-
-const ProgressBar = ({ currentQuestion }) => {
+const ProgressBar = ({}) => {
   const classes = useStyles();
+
+  const { state, stepPyramid, currentStep } = useContext(TriviaContext);
+
+  //Reverse step pyramid
+  const reversedStepPyramid = () => {
+    const newStepPyramid = [...stepPyramid];
+    return newStepPyramid.reverse();
+  };
 
   return (
     <div className={classes.progressBar}>
       <div className={classes.list}>
         <List>
-          {reversedStepPyramid().map((list) => (
+          {reversedStepPyramid().map((steps) => (
             <Step
-              currentQuestion={currentQuestion}
-              step={list.step}
-              amount={list.amount}
-              key={list.step.toString()}
+              step={steps.step}
+              amount={steps.amount}
+              key={steps.step}
+              currentStep={currentStep}
             />
           ))}
         </List>

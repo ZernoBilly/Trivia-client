@@ -11,10 +11,15 @@ import stepPyramid from "../Data/stepPyramid";
 
 const TriviaState = (props) => {
   const initQuestion = {
-    question: {},
+    category: "Category",
+    correct_answer: "Press Start",
+    incorrect_answers: [],
+    question: "Question",
   };
 
   const [currentStep, setCurrentStep] = useState(stepPyramid[0]);
+  const [answers, setAnswers] = useState();
+  const [score, setScore] = useState();
 
   const [state, dispatch] = useReducer(questionReducer, initQuestion);
 
@@ -49,6 +54,8 @@ const TriviaState = (props) => {
         currentStep,
         setCurrentStep,
         stepPyramid,
+        answers,
+        setAnswers,
       }}
     >
       {props.children}

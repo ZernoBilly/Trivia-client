@@ -10,12 +10,19 @@ export default makeStyles((theme) => ({
     height: "2.3rem",
   },
   activeStep: {
-    backgroundColor: theme.palette.primary.dark,
+    backgroundColor: theme.palette.info.light,
     borderRadius: "1rem",
-    margin: "0.5rem",
+    margin: "1rem 0rem",
     justifyContent: "space-between",
     width: "20rem",
+    height: "2.3rem",
+    border: "1px solid",
+    borderColor: theme.palette.primary.light,
   },
-  stepNumber: {},
-  stepAmount: {},
+  stepNumber: {
+    color: theme.palette.dark.dark,
+  },
+  stepAmount: {
+    color: theme.palette.dark.dark,
+  },
 }));
