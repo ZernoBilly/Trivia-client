@@ -36,6 +36,7 @@ export default makeStyles((theme) => ({
   },
   question: {
     color: theme.palette.optional.main,
+    fontSize: "1.1rem",
   },
   answersContainer: {
     height: "50%",
@@ -51,6 +52,7 @@ export default makeStyles((theme) => ({
     backgroundColor: theme.palette.primary.light,
     color: theme.palette.dark.main,
     marginTop: "1rem",
+    borderRadius: "3rem",
   },
   scoreAmount: {
     color: theme.palette.dark.main,

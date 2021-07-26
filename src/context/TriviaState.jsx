@@ -19,7 +19,8 @@ const TriviaState = (props) => {
 
   const [currentStep, setCurrentStep] = useState(stepPyramid[0]);
   const [answers, setAnswers] = useState();
-  const [score, setScore] = useState();
+  const [gameIsStarted, setGameIsStarted] = useState(false);
+  const [score, setScore] = useState(0);
 
   const [state, dispatch] = useReducer(questionReducer, initQuestion);
 
@@ -56,6 +57,10 @@ const TriviaState = (props) => {
         stepPyramid,
         answers,
         setAnswers,
+        gameIsStarted,
+        setGameIsStarted,
+        score,
+        setScore,
       }}
     >
       {props.children}

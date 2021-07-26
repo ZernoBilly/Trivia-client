@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { Grid, Typography, Paper, IconButton } from "@material-ui/core";
 import PlayArrowIcon from "@material-ui/icons/PlayArrow";
@@ -24,16 +24,24 @@ const QuestionAndAnswers = () => {
     stepPyramid,
     answers,
     setAnswers,
+    gameIsStarted,
+    setGameIsStarted,
+    score,
+    setScore,
   } = useContext(triviaContext);
 
   useEffect(() => {
     setAnswers(shuffleAnswers());
   }, [state]);
 
+  const [selectedAnswer, setSelectedAnswer] = useState("");
+  const [scoreStatus, setScoreStatus] = useState("Score:");
+
   //Increase current step number
   const handleNextQuestion = () => {
     const newStep = [...stepPyramid];
     setCurrentStep(newStep[currentStep.step - 1 + 1]);
+    setSelectedAnswer("");
   };
 
   //Check difficulty of current step
@@ -47,6 +55,8 @@ const QuestionAndAnswers = () => {
         break;
       case "hard":
         getHardQuestions();
+        break;
+      default:
         break;
     }
   };
@@ -80,7 +90,8 @@ const QuestionAndAnswers = () => {
     let encodedText = text
       .replace(/&quot;/g, '"')
       .replace(/&#039;/g, "'")
-      .replace(/&eacute;/g, "é");
+      .replace(/&eacute;/g, "é")
+      .replace(/&rsquo;/g, "'");
     return encodedText;
   };
 
@@ -93,6 +104,25 @@ const QuestionAndAnswers = () => {
 
     return shuffledAnswers;
   };
+
+  //Start game
+  const startGame = () => {
+    getQuestions();
+    setGameIsStarted(true);
+    setSelectedAnswer("");
+    setScore(0);
+    setScoreStatus("Score:");
+  };
+
+  //Stop Game
+  const stopGame = () => {
+    setGameIsStarted(false);
+    setCurrentStep(stepPyramid[0]);
+    setScoreStatus("Final Score:");
+    setSelectedAnswer("none");
+  };
+
+  console.log(currentStep.difficulty);
 
   return (
     <Grid
@@ -118,7 +148,7 @@ const QuestionAndAnswers = () => {
         <Grid item xs={3}>
           <Paper className={classes.scoreField}>
             <Typography variant="h5" className={classes.scoreAmount}>
-              Score
+              {scoreStatus} {score}
             </Typography>
           </Paper>
         </Grid>
@@ -126,7 +156,17 @@ const QuestionAndAnswers = () => {
       <Grid container spacing={1} className={classes.answersContainer}>
         {answers ? (
           answers.map((a) => (
-            <Answer key={a} answer={a} correctAnswer={state.correct_answer} />
+            <Answer
+              key={a}
+              answer={a}
+              correctAnswer={state.correct_answer}
+              selectedAnswer={selectedAnswer}
+              setSelectedAnswer={setSelectedAnswer}
+              score={score}
+              setScore={setScore}
+              currentStepAmount={currentStep.amount}
+              stopGame={stopGame}
+            />
           ))
         ) : (
           <Grid item xs={12}>
@@ -135,16 +175,22 @@ const QuestionAndAnswers = () => {
         )}
 
         <Grid item xs={12} className={classes.actionButtonContainer}>
-          <IconButton className={classes.stopButton} size="medium">
+          <IconButton
+            className={classes.stopButton}
+            disabled={!gameIsStarted}
+            onClick={() => stopGame()}
+          >
             <StopIcon />
           </IconButton>
           <IconButton
             className={classes.startButton}
-            onClick={() => getQuestions()}
+            disabled={gameIsStarted}
+            onClick={() => startGame()}
           >
             <PlayArrowIcon />
           </IconButton>
           <IconButton
+            disabled={!gameIsStarted}
             className={classes.nextButton}
             onClick={() => {
               handleNextQuestion();
