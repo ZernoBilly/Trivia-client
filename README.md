@@ -1,6 +1,10 @@
 # Trivia app
 
-Trivia app with multible answer options and advancing question difficulty. User login function. User score record stored in database.
+Trivia app with multible answer options and advancing question difficulty.
+
+## Deploy
+
+Netlify: https://trivia-appi.netlify.app/
 
 ## Functions
 
@@ -17,6 +21,11 @@ Questions fetched from https://opentdb.com/ API.
 * Node.js
 * Express.js
 * Mongodb
+
+## Cheating options
+* React Developer Tools on your browser
+* Search for state.correct_answer
+`encode = undefined`
 
 `Work in progress`
 
