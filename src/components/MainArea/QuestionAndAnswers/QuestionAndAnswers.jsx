@@ -122,8 +122,6 @@ const QuestionAndAnswers = () => {
     setSelectedAnswer("none");
   };
 
-  console.log(currentStep.difficulty);
-
   return (
     <Grid
       container

@@ -7,10 +7,10 @@ import useStyles from "./styles";
 
 import TriviaContext from "../../context/triviaContext";
 
-const ProgressBar = ({}) => {
+const ProgressBar = () => {
   const classes = useStyles();
 
-  const { state, stepPyramid, currentStep } = useContext(TriviaContext);
+  const { stepPyramid, currentStep } = useContext(TriviaContext);
 
   //Reverse step pyramid
   const reversedStepPyramid = () => {

@@ -7,8 +7,6 @@ import useStyles from "./styles";
 const Step = ({ amount, step, currentStep }) => {
   const classes = useStyles();
 
-  console.log(currentStep.step);
-
   return (
     <ListItem
       className={currentStep.step === step ? classes.activeStep : classes.step}

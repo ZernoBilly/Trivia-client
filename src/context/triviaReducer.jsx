@@ -12,6 +12,8 @@ const questionReducer = (state, action) => {
       return action.payload;
     case FETCH_HARD_QUESTION:
       return action.payload;
+    default:
+      break;
   }
 };
 
