@@ -1,18 +1,19 @@
 # Trivia app
-
-Trivia app with multible answer options and advancing question difficulty.
+Trivia app with multible answer options and increasing question difficulty.
 
 ## Deploy
-
 Netlify: https://trivia-appi.netlify.app/
 
 ## Functions
-
-User can login to see global leaderboard and store personal score in database.
-Questions fetched from https://opentdb.com/ API.
+* Score pyramid
+* Multiple answer options
+* Remove 2 wrong answers `Work in progress`
+* User login / leaderboard `Work in progress`
+* Timer `Work in progress`
+* Increasing difficulty
+* Questions fetched from https://opentdb.com/ API.
 
 ## Used technologies
-
 **Frontend**
 * React
 * Material Ui
@@ -23,7 +24,7 @@ Questions fetched from https://opentdb.com/ API.
 * Mongodb
 
 ## Cheating options
-* React Developer Tools on your browser
+* Install React Developer Tools on your browser
 * Search for state.correct_answer
 `encode = undefined`
 
