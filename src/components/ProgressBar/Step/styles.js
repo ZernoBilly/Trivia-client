@@ -4,7 +4,7 @@ export default makeStyles((theme) => ({
   step: {
     backgroundColor: theme.palette.primary.main,
     borderRadius: "1rem",
-    margin: "1rem 0rem",
+    margin: "0.8rem 0rem",
     justifyContent: "space-between",
     width: "20rem",
     height: "2.3rem",
@@ -12,7 +12,7 @@ export default makeStyles((theme) => ({
   activeStep: {
     backgroundColor: theme.palette.info.light,
     borderRadius: "1rem",
-    margin: "1rem 0rem",
+    margin: "0.8rem 0rem",
     justifyContent: "space-between",
     width: "20rem",
     height: "2.3rem",
