@@ -188,7 +188,7 @@ const QuestionAndAnswers = () => {
             <PlayArrowIcon />
           </IconButton>
           <IconButton
-            disabled={!gameIsStarted}
+            disabled={!gameIsStarted || !selectedAnswer}
             className={classes.nextButton}
             onClick={() => {
               handleNextQuestion();
