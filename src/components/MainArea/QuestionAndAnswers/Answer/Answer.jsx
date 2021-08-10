@@ -12,6 +12,8 @@ const Answer = ({
   setScore,
   currentStepAmount,
   stopGame,
+  setStartTimer,
+  setTimer,
 }) => {
   const classes = useStyles();
 
@@ -21,6 +23,7 @@ const Answer = ({
     if (correctAnswer === answer) {
       setButtonClassName(classes.correctAnswerButton);
       setScore(score + currentStepAmount);
+      setStartTimer(false);
     } else {
       setButtonClassName(classes.incorrectAnswerButton);
       stopGame();

@@ -41,6 +41,17 @@ export default makeStyles((theme) => ({
     justifyContent: "center",
     alignItems: "center",
   },
+  timerLow: {
+    marginTop: "8rem",
+    width: "8rem",
+    height: "8rem",
+    borderRadius: "50%",
+    border: "0.5rem solid",
+    borderColor: theme.palette.warning.main,
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+  },
   time: {
     color: theme.palette.primary.main,
     fontSize: "4rem",

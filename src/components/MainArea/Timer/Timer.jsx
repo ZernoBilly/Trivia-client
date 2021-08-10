@@ -3,17 +3,29 @@ import { Grid, Typography, Button } from "@material-ui/core";
 
 import useStyles from "./styles";
 
-const Timer = () => {
+const Timer = ({ startTimer, timer, setTimer, setStartTimer }) => {
   const classes = useStyles();
 
-  const [timer, setTimer] = useState(30);
+  const [timerClassName, setTimerClassName] = useState(classes.timer);
 
+  //Timer to reduce the game clock in 1s intervals
   useEffect(() => {
-    const interval = setInterval(() => {
-      setTimer((prev) => prev - 1);
-    }, 1000);
-    return clearInterval(interval);
-  }, []);
+    if (startTimer) {
+      const interval = setInterval(() => {
+        setTimer((prev) => prev - 1);
+      }, 1000);
+      return () => clearInterval(interval);
+    }
+  }, [startTimer, setTimer]);
+
+  //Change timer classname depending on seconds lest
+  useEffect(() => {
+    if (timer < 10) {
+      setTimerClassName(classes.timerLow);
+    } else {
+      setTimerClassName(classes.timer);
+    }
+  }, [timer, classes.timer, classes.timerLow]);
 
   return (
     <Grid container direction="column" className={classes.timerContainer}>
@@ -24,7 +36,7 @@ const Timer = () => {
         </Typography>
         <Button className={classes.button}>Login</Button>
       </Grid>
-      <Grid item className={classes.timer}>
+      <Grid item className={timerClassName}>
         <Typography className={classes.time}>{timer}</Typography>
       </Grid>
     </Grid>

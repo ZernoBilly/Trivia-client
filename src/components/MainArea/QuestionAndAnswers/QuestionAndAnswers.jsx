@@ -11,7 +11,7 @@ import useStyles from "./styles";
 
 import triviaContext from "../../../context/triviaContext";
 
-const QuestionAndAnswers = () => {
+const QuestionAndAnswers = ({ setStartTimer, timer, setTimer }) => {
   const classes = useStyles();
 
   const {
@@ -38,6 +38,12 @@ const QuestionAndAnswers = () => {
 
   const [selectedAnswer, setSelectedAnswer] = useState("");
   const [scoreStatus, setScoreStatus] = useState("Score:");
+
+  useEffect(() => {
+    if (timer < 1) {
+      stopGame();
+    }
+  }, [timer]);
 
   //Increase current step number
   const handleNextQuestion = () => {
@@ -116,6 +122,8 @@ const QuestionAndAnswers = () => {
     setSelectedAnswer("");
     setScore(0);
     setScoreStatus("Score:");
+    setTimer(30);
+    setStartTimer(true);
   };
 
   //Stop Game
@@ -124,6 +132,7 @@ const QuestionAndAnswers = () => {
     setCurrentStep(stepPyramid[0]);
     setScoreStatus("Final Score:");
     setSelectedAnswer("none");
+    setStartTimer(false);
   };
 
   return (
@@ -168,6 +177,8 @@ const QuestionAndAnswers = () => {
               setScore={setScore}
               currentStepAmount={currentStep.amount}
               stopGame={stopGame}
+              setStartTimer={setStartTimer}
+              setTimer={setTimer}
             />
           ))
         ) : (
@@ -197,6 +208,8 @@ const QuestionAndAnswers = () => {
             onClick={() => {
               handleNextQuestion();
               getQuestions();
+              setTimer(30);
+              setStartTimer(true);
             }}
           >
             <SkipNextIcon />
