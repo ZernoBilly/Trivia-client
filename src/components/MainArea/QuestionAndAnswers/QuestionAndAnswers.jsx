@@ -31,7 +31,9 @@ const QuestionAndAnswers = () => {
   } = useContext(triviaContext);
 
   useEffect(() => {
-    setAnswers(shuffleAnswers());
+    if (gameIsStarted) {
+      setAnswers(shuffleAnswers());
+    }
   }, [state]);
 
   const [selectedAnswer, setSelectedAnswer] = useState("");
@@ -85,7 +87,7 @@ const QuestionAndAnswers = () => {
     fetchHardQuestion(data.results[0]);
   };
 
-  //Encode missing special characters from fetched data
+  //Encode missing quetes and characters from fetched data
   const encodeText = (text) => {
     let encodedText = text
       .replace(/&quot;/g, '"')

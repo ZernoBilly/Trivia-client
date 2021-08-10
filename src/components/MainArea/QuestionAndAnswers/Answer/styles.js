@@ -23,7 +23,7 @@ export default makeStyles((theme) => ({
   correctAnswerButton: {
     width: "25rem",
     height: "3rem",
-    color: theme.palette.dark.dark,
+    color: theme.palette.optional.main,
     backgroundColor: theme.palette.success.main,
     borderRadius: "1rem",
 

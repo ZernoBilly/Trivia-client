@@ -12,7 +12,7 @@ import stepPyramid from "../Data/stepPyramid";
 const TriviaState = (props) => {
   const initQuestion = {
     category: "Category",
-    correct_answer: "Press Start",
+    correct_answer: "",
     incorrect_answers: [],
     question: "Question",
   };
