@@ -37,6 +37,10 @@ const theme = createMuiTheme({
       dark: "#3c1a89",
       light: "#7751cf",
     },
+    action: {
+      disabled: "#E0E5E9",
+      disabledOpacity: "1",
+    },
   },
 });
 

@@ -93,7 +93,9 @@ const QuestionAndAnswers = () => {
       .replace(/&quot;/g, '"')
       .replace(/&#039;/g, "'")
       .replace(/&eacute;/g, "é")
-      .replace(/&rsquo;/g, "'");
+      .replace(/&rsquo;/g, "'")
+      .replace(/&rdquo;/g, "'")
+      .replace(/&ldquo;/g, "'");
     return encodedText;
   };
 
@@ -169,8 +171,8 @@ const QuestionAndAnswers = () => {
             />
           ))
         ) : (
-          <Grid item xs={12}>
-            "Press Start"
+          <Grid item xs={12} className={classes.pressStart}>
+            Press Start
           </Grid>
         )}
 

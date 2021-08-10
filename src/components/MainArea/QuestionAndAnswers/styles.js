@@ -90,4 +90,10 @@ export default makeStyles((theme) => ({
       backgroundColor: theme.palette.success.dark,
     },
   },
+  pressStart: {
+    display: "flex",
+    justifyContent: "center",
+    fontSize: "1.3rem",
+    color: theme.palette.primary.main,
+  },
 }));
