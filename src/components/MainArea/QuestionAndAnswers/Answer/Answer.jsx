@@ -21,7 +21,7 @@ const Answer = ({
   const handleClick = () => {
     if (correctAnswer === answer) {
       setButtonClassName(classes.correctAnswerButton);
-      setScore(score + currentStepAmount);
+      setScore(currentStepAmount);
       setStartTimer(false);
     } else {
       setButtonClassName(classes.incorrectAnswerButton);
