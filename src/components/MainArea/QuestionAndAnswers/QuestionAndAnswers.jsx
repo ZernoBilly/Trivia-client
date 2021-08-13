@@ -43,6 +43,7 @@ const QuestionAndAnswers = ({ setStartTimer, timer, setTimer }) => {
   //Stop game when countdown timer hit 0
   useEffect(() => {
     if (timer < 1) {
+      setScore(0);
       stopGame();
     }
   }, [timer]);

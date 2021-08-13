@@ -25,6 +25,7 @@ const Answer = ({
       setStartTimer(false);
     } else {
       setButtonClassName(classes.incorrectAnswerButton);
+      setScore(0);
       stopGame();
     }
     setSelectedAnswer(answer);
