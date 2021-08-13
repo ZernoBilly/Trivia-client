@@ -54,9 +54,16 @@ export default makeStyles((theme) => ({
     marginTop: "1rem",
     borderRadius: "3rem",
   },
-  scoreAmount: {
-    color: theme.palette.dark.main,
+
+  finalScoreField: {
+    textAlign: "center",
+    backgroundColor: theme.palette.info.dark,
+    color: theme.palette.primary.light,
+    marginTop: "1rem",
+    borderRadius: "3rem",
+    border: "1px solid",
   },
+
   actionButtonContainer: {
     display: "flex",
     alignItems: "space-between",

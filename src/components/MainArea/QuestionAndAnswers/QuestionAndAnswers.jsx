@@ -38,7 +38,9 @@ const QuestionAndAnswers = ({ setStartTimer, timer, setTimer }) => {
 
   const [selectedAnswer, setSelectedAnswer] = useState("");
   const [scoreStatus, setScoreStatus] = useState("Score:");
+  const [scoreClassName, setScoreClassName] = useState(classes.scoreField);
 
+  //Stop game when countdown timer hit 0
   useEffect(() => {
     if (timer < 1) {
       stopGame();
@@ -124,6 +126,7 @@ const QuestionAndAnswers = ({ setStartTimer, timer, setTimer }) => {
     setScoreStatus("Score:");
     setTimer(30);
     setStartTimer(true);
+    setScoreClassName(classes.scoreField);
   };
 
   //Stop Game
@@ -133,6 +136,7 @@ const QuestionAndAnswers = ({ setStartTimer, timer, setTimer }) => {
     setScoreStatus("Final Score:");
     setSelectedAnswer("none");
     setStartTimer(false);
+    setScoreClassName(classes.finalScoreField);
   };
 
   return (
@@ -157,8 +161,8 @@ const QuestionAndAnswers = ({ setStartTimer, timer, setTimer }) => {
           </Paper>
         </Grid>
         <Grid item xs={3}>
-          <Paper className={classes.scoreField}>
-            <Typography variant="h5" className={classes.scoreAmount}>
+          <Paper className={scoreClassName}>
+            <Typography variant="h5">
               {scoreStatus} {score}
             </Typography>
           </Paper>

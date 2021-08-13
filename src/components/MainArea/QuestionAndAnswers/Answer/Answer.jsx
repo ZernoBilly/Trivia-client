@@ -13,7 +13,6 @@ const Answer = ({
   currentStepAmount,
   stopGame,
   setStartTimer,
-  setTimer,
 }) => {
   const classes = useStyles();
 
